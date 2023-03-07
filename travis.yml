@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t shobitg/docker-react -f Dockerfile.dev
+script: 
+  - docker run -e CI=true shobitg/docker-react npm run test 
